@@ -196,6 +196,7 @@ class TaskDict(object):
 
         """
         task = self.tasks.pop(self[prefix]['id'])
+        task['done'] = datetime.now()
         self.done[task['id']] = task
 
     def remove_task(self, prefix):
