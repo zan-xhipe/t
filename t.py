@@ -5,6 +5,7 @@
 from __future__ import with_statement
 
 import os, re, sys, hashlib
+from datetime import datetime
 from operator import itemgetter
 from optparse import OptionParser, OptionGroup
 
@@ -165,7 +166,8 @@ class TaskDict(object):
     def add_task(self, text):
         """Add a new, unfinished task with the given summary text."""
         task_id = _hash(text)
-        self.tasks[task_id] = {'id': task_id, 'text': text}
+        time_stamp = datetime.now()
+        self.tasks[task_id] = {'id': task_id, 'text': text, 'time': time_stamp}
 
     def edit_task(self, prefix, text):
         """Edit the task with the given prefix.
