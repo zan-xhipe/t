@@ -57,7 +57,7 @@ def _task_from_taskline(taskline):
         text, _, meta = taskline.rpartition('|')
         task = { 'text': text.strip() }
         for piece in meta.strip().split(','):
-            label, data = piece.split(':')
+            label, data = piece.split(':', 1)
             task[label.strip()] = data.strip()
     else:
         text = taskline.strip()
